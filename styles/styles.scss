@@ -1,0 +1,1076 @@
+/* 
+--------------
+Browser Resets
+--------------
+*/
+@import "./normalize.scss";
+
+/* 
+--------------
+SASS Variables
+--------------
+*/
+$body-font-color: #05445E;
+$button-color: #7D2AE8;
+$popup-color: rgb(0, 73, 88);
+$popup-background-color: cadetblue;
+
+/* 
+-----
+mixin
+-----
+*/
+@mixin font-style($main-font, $font1, $font2, $size, $color)
+{
+    font-family: $main-font, $font1, $font2;
+    font-size: $size;
+    color: $color;
+}
+
+/* 
+---------
+Font Face
+---------
+*/
+@font-face 
+{
+    font-family: 'open_sansregular';
+    src: url('../fonts/opensans-regular-webfont.woff2') format('woff2'),
+         url('../fonts/opensans-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face 
+{
+    font-family: 'bree_serifregular';
+    src: url('../fonts/breeserif-regular-webfont.woff2') format('woff2'),
+         url('../fonts/breeserif-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html 
+{
+	box-sizing: border-box;
+    @include font-style("bree_serifregular", arial, sans-serif, 1rem, $body-font-color);
+    scroll-behavior: smooth;
+}
+
+*, *:before, *:after 
+{
+	box-sizing: inherit;
+}
+
+body
+{
+    @include font-style("open_sansregular", tahoma, serif, 1rem, $body-font-color);
+	background-color: gray;	
+	margin: 0px;
+
+    background-image: url("../images/main-background.jpg");
+    background-repeat: no-repeat;	
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+}
+
+:root
+{
+    /* page specific colors */    
+    --main-color: rgb(37,44,88);
+    --main-color-transparent: rgba(37,44,88, .25);    
+    --second-color: rgb(215,114,124);    
+    --second-color-transparent: rgba(215,114,124, 0.25);
+    
+    /* universal palette */
+    --dark-color: #242424;             /* near-but-not black */
+    --light-color: rgb(245, 245, 245); /* not-quite white */    
+    --code-color: rgb(233, 233, 233);  /* code examples stand out from block text */
+    --bad-color: rgb(85, 0, 0);        /* red means 'it's time to panic!' */  
+    --good-color: rgb(22, 75, 22);     /* green means 'let's rock!' */    
+
+    /* fonts */
+    --heading-font-face: "leaguespartan-bold-webfont";
+    --block-text-font-face: "fira_sansregular";
+}
+
+header
+{
+    background-image: url("../images/header.jpg");
+    background-repeat: no-repeat;	
+    background-position: left;
+}
+
+main
+{	
+    background-color: white;
+    padding: 10px;
+    flex: 1;
+}
+
+section
+{
+    background-color: white;
+    border: solid 2px #2FF3E0;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+article 
+{
+    width: 50%;
+    padding: 10px;
+    margin-top: 15px;
+    border: solid 2px black;
+    background-color: #a7ffff ;
+}
+
+h1
+{
+    @include font-style("bree_serifregular", arial, sans-serif, 1.6rem, white);
+    padding-left: 20px;
+    line-height: 55px;
+    margin-left: 5px;
+}
+
+h2
+{
+    font-size: 1.3rem;
+    margin: 12px 0px 5px;
+    color: #1A4A81;
+    text-align: center;
+}
+
+h3
+{
+    @include font-style("bree_serifregular", arial, sans-serif, 1.2rem, $body-font-color);
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+h4
+{
+    display: block;
+    text-align: center;
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+}
+
+h5
+{
+    margin: 7px 0px;
+    text-align: center;
+    font-size: 0.85rem;
+}
+
+p
+{
+    line-height: 20px;
+    color: white;
+    font-size: 1rem;
+}
+
+section p
+{
+    font-size: 0.95rem;
+    line-height: 20px;
+    text-align: left;
+    color: $body-font-color;
+    margin: 15px 0px;
+}
+
+hr
+{
+    margin: 10px 0px -5px 0px;
+}
+
+img
+{
+    display: block;
+    width: 50px;
+    height: auto;
+    margin: 0px auto;
+    padding-bottom: 10px;
+}
+
+/* 
+----
+List
+----
+*/
+ul
+{
+    padding-left: 25px;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+li
+{
+    font-size: 0.9rem;
+    line-height: 20px;
+    padding-bottom: 10px;
+}
+
+/* 
+-------
+Buttons
+-------
+*/
+button
+{
+    border-radius: 5px;
+    background-color: rgb(157, 250, 255);
+    color: $button-color;
+    border: solid 2px rgb(0, 124, 120);
+    box-shadow: 2px 2px 1px var(--main-color);
+    font-weight: bolder;
+    padding: 7px 10px 7px 10px;
+    display: block;
+    margin: 10px 5px;
+    margin-bottom: 25px;
+    justify-content: center;
+    font-size: 0.9rem;
+}
+
+button:hover, button:focus, button:active
+{
+    border: solid 2px rgb(0, 124, 120);
+    background-color: $button-color;
+    color: white;
+    cursor: pointer;
+}
+
+button:active
+{
+    transform: scale(1.04);
+}
+
+.all-buttons
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+/* 
+------
+Footer
+------
+*/
+footer
+{
+    background-color: #8cffff;
+    height: 60px;
+    padding: 0px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.footer-adj
+{
+    font-size: 0.85rem;
+    text-align: center;
+    margin: 0px;
+    font-weight: bold;
+}
+
+/* 
+------
+a link
+------
+*/
+a:link, a:hover, a:visited, a:focus
+{
+    color: #923fff;
+    font-size: 0.85rem;
+    font-weight: bold;
+    text-decoration: none;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+}
+
+/* 
+-----
+Table
+-----
+*/
+table 
+{
+    border: solid 3px rgb(228, 161, 255);
+    width: 100%;
+    max-width: 300px;
+    margin: 25px auto 35px auto;
+}
+
+td, th 
+{
+    border-style: solid;
+    border-width: 1px;
+    text-align: center;
+    font-size: 0.85rem;
+    padding: 7px;
+}
+
+th
+{
+    background-color: white;
+}
+
+tr:nth-child(1)
+{
+    background-color: #A7FFFF;
+}
+
+tr:nth-child(2)
+{
+    background-color: rgb(219, 218, 218);
+}
+
+td:nth-child(1)
+{
+    text-align: left;
+}
+
+/* 
+--------------------
+Containers and Boxes
+--------------------
+*/
+.container 
+{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0px;
+    justify-content: center;
+}
+
+.container1
+{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    max-width: 300px;
+    padding-bottom: 10px;
+    margin-top: 20px;
+}
+
+.container2
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0px 10px;
+    margin-bottom: 10px;
+}
+
+.container3
+{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border-radius: 7px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.container4
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.small-box
+{
+    background-color: white;
+    border: solid 2px rgb(159, 159, 159);
+    padding: 43px 5px;
+    width: 95px;
+    height: 95px;
+    display: flex;
+    flex-direction: column;
+    
+    justify-content: center;
+    text-align: center;
+    font-weight: bold;
+    margin: 5px;
+}
+
+.big-box
+{
+    background-color: rgb(222, 254, 248);
+    border: solid 2px rgb(107, 107, 107);
+    border-radius: 7px;
+    max-width: 460px;
+    margin: 0px auto 10px auto;
+}
+
+/* 
+----------------------
+Round and Score Number
+----------------------
+*/
+.score
+{
+    @include font-style(tahoma, Geneva, sans-serif, 1.05rem, rgb(50, 0, 250));
+    text-align: center;
+}
+
+.game-round
+{
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.table-score
+{
+    @include font-style(tahoma, Geneva, sans-serif, 0.85rem, rgb(50, 0, 250));
+}
+
+/* 
+------
+Pop up
+------
+*/
+#pop-up
+{
+    display: none;
+
+	/* remove this popup from normal page flow */
+    position: fixed;
+    top: 0px;
+    left: 0px;    
+
+	/* fill the entire viewport */
+    width: 100vw;
+    height: 100vh;   
+
+	/* ensure it is over-top all other page elements */
+	z-index: 1000;
+
+	/* transparency allows user to see content behind */
+	background-color: rgba(179, 255, 255, 0.5); 
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+#pop-up div
+{
+	/* vertically/horizontally center this element */
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+
+	/* basic box model stuff */
+	max-width: 250px;
+	min-width: 250px;
+	padding: 10px;
+	border-radius: 5px;
+	box-shadow: 0 0 0 2px rgb(145, 197, 199),
+		        0 0 0 4px cadetblue, 
+				0 0 0 6px rgb(39, 103, 105);
+	background-color: $popup-background-color;
+	color: $popup-color;
+}
+
+/* the close X button in popup window */
+#close-pop-up
+{
+	background-color: white;
+	color: rgb(0, 136, 141);
+	border-radius: 5px;
+    font-size: 0.8rem;
+	font-weight: bold;
+	border: solid 2px rgb(39, 103, 105);
+
+	/*
+	make a 'hand' pointer icon appear on mouseover
+	otherwise it will just be the usual mouse cursor arrow
+	*/
+	cursor: pointer;
+
+	/*
+	stick this X button in the 
+	top right corner of the popup
+	*/
+	position: absolute;
+	top: -2px;
+	right: 6px;
+}
+
+#pop-up button
+{
+    padding: 4px 6px;
+}
+
+/* 
+-------------
+Popup Message
+-------------
+*/
+.won
+{
+    display: none;
+    text-align: center;
+}
+
+.lost
+{
+    display: none;
+    text-align: center;
+}
+
+.even
+{
+    display: none;
+    text-align: center;
+}
+
+.show
+{
+    display: block;
+}
+
+.winner
+{
+    border: solid 1px rgb(255, 71, 71);
+    background-color: rgb(255, 224, 224);
+}
+
+.even-result
+{
+    border: solid 1px rgb(21, 160, 0);
+    background-color: rgb(159, 255, 196);
+}
+
+/* 
+------
+Colors
+------
+*/
+.gray
+{
+    background-color: rgb(219, 218, 218);
+}
+
+.blue
+{
+    color: rgb(50, 0, 250);
+}
+
+/* 
+-----------
+ID Selector
+-----------
+*/
+#wrapper
+{
+    border-left: solid 2px rgb(200, 200, 200);
+    border-right: solid 2px rgb(200, 200, 200);
+    max-width: 900px;
+    margin: 0px auto ;
+    background-color: lightgray;
+
+    display: grid;
+    min-height: 100vh;
+    grid-template-rows: auto 1fr auto;
+}
+
+/* 
+==========
+All Medias 
+==========
+*/
+/* --------------------------- min-width: 500px  --------------------------- */
+@media (min-width: 500px)
+{
+    header 
+    {
+        height: 100px;
+    }
+
+    main 
+    {
+        padding: 15px;
+    }
+
+    section
+    {
+        padding: 15px;
+        border-radius: 10px;
+    }
+
+    article
+    {
+        padding: 15px;
+        border: solid 2px black;
+    }
+
+    h1
+    {
+        padding-left: 25px;
+        line-height: 65px;
+        font-size: 1.7rem;
+    }
+
+    h2
+    {
+        padding-left: 0px;
+        margin: 15px auto;
+        padding-left: 0px;
+        font-size: 1.5rem;
+    }
+    
+    h3
+    {
+        font-size: 1.3rem;
+    }
+
+    h4 
+    {
+        font-size: 1rem;
+    }
+
+    h5
+    {
+        margin: 7px 0px;
+    }
+
+    p
+    {
+        font-size: 0.95rem;
+        line-height: 22px;
+    }
+
+    img 
+    {
+        width: 85%;
+        height: auto;
+        padding-bottom: 10px;
+    }
+
+    ul 
+    {
+        padding-left: 30px;
+    }
+
+    li
+    {
+        font-size: 1rem;
+    }
+
+    a:link
+    {
+        font-size: 0.95rem;
+    }
+
+    table 
+    {
+        width: 85%;
+        max-width: 400px;
+        margin: 30px auto 40px auto;
+    }
+
+    td, th 
+    {
+        border-width: 1.5px;
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+
+    button
+    {
+        border-radius: 5px;
+        padding: 7px 12px 7px 12px;
+        font-size: 1rem;
+        margin-bottom: 25px;
+    }
+
+    .all-buttons
+    {
+        font-size: 1rem;
+        padding: 0px;
+        line-height: 22px;
+    }
+
+    section p 
+    {
+        font-size: 1rem;
+    }
+
+    aside p
+    {
+        font-size: 1.1rem;
+    }
+
+    footer 
+    {
+        height: 70px;
+    }
+
+    .footer-adj
+    {
+        font-size: 0.9rem;
+    }
+
+    #pop-up div
+    {
+        /* basic box model stuff */
+        max-width: 290px;
+        min-width: 290px;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 0 0 2px rgb(145, 197, 199),
+                    0 0 0 4px cadetblue, 
+                    0 0 0 8px rgb(39, 103, 105);
+    }
+
+    #close-pop-up
+    {
+        border-radius: 8px;
+        font-size: 1rem;
+        border: solid 3px rgb(39, 103, 105);
+        top: -1px;
+        right: 8px;
+    }
+
+    #pop-up button
+    {
+        padding: 4px 7px;
+    }
+
+    .container1
+    {
+        width: 50%;
+        max-width: 250px;
+        gap: 15px;
+        padding: 15px;
+    }
+
+    .container2
+    {
+        gap: 0px;
+        margin: 0px 5px;
+        margin-bottom: 10px;
+    } 
+
+    .container3
+    {
+        margin-top: 25px;
+    }
+
+    .small-box
+    {
+        width: 70px;
+        height: 70px;
+        margin: 0px auto;
+    }
+
+    .big-box
+    {
+        width: 100%;
+        max-width: 180px;
+        margin: 0px auto;
+    }
+
+    .game-round
+    {
+        font-size: 1rem;
+    }
+
+    .table-score
+    {
+        font-size: 0.9rem;
+    }
+
+    .winner
+    {
+        border-width: 1.5px;
+    }
+
+    .even-result
+    {
+        border-width: 1.5px;
+    }
+}
+
+/* --------------------------- min-width: 700px  --------------------------- */
+@media (min-width: 700px)
+{
+    header 
+    {
+        height: 120px;
+    }
+
+    main
+    {
+        padding: 25px;
+    }
+
+    section 
+    {
+        padding: 25px;
+        border: solid 3px #2FF3E0;
+    }
+
+    article
+    {
+        padding: 25px;
+    }
+
+    h1
+    {
+        padding-left: 35px;
+        line-height: 70px;
+        font-size: 2.2rem;
+    }
+
+    h2
+    {
+        font-size: 1.6rem;
+        margin-top: 10px;
+        margin-bottom: 15px;
+    }
+
+    h3
+    {
+        font-size: 1.35rem;
+    }
+
+    h4 
+    {
+        margin: 10px;
+        font-size: 1.1rem;
+    }
+
+    h5
+    {
+        font-size: 0.9rem;
+    }
+
+    section p
+    {
+        margin-bottom: 20px;
+        font-size: 1.1rem;
+        line-height: 25px;
+    }
+
+    aside p
+    {
+        font-size: 1.2rem;
+    }
+
+    p 
+    {
+        font-size: 1rem;
+        line-height: 24px;
+    }
+
+    table 
+    {
+        margin-bottom: 45px;
+    }
+
+    hr
+    {
+        margin-top: 30px;
+    }
+
+    img 
+    {
+        width: 90%;
+        height: auto;
+        padding-bottom: 10px;
+    }
+
+    button
+    {
+        font-size: 1.1rem;
+        padding: 7px 12px 8px 12px;
+        margin-top: 15px ;
+    }
+
+    .all-buttons
+    {
+        line-height: 22px;
+    }
+
+    footer 
+    {
+        height: 80px;
+    }
+
+    .footer-adj
+    {
+        font-size: 1rem;
+    }
+
+    #pop-up div
+    {
+        min-width: 320px;
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    #close-pop-up
+    {
+        border-radius: 10px;
+        font-size: 1.1rem;
+        border: solid 3px rgb(39, 103, 105);
+        top: -6px;
+        right: 8px;
+        color: black;
+    }
+
+    .container1
+    {
+        width: 90%;
+        max-width: 290px;
+        gap: 10px;
+        padding: 25px;
+        padding-bottom: 10px;
+    }
+
+    .container2
+    {
+        gap: 0px;
+        margin: 5px 5px;
+        margin-top: 20px
+    } 
+
+    .container3
+    {
+        margin-top: 35px;
+    }
+
+    .small-box
+    {
+        width: 95px;
+        height: 95px;
+        margin: 0px auto;
+        padding: 15px;
+    }
+
+    .big-box
+    {
+        width: 100%;
+        max-width: 260px;
+        margin: 0px auto;
+        margin-bottom: 15px;
+        padding: 15px;
+        border-radius: 10px;
+    }
+
+    .score
+    {
+        font-size: 1.1rem;
+    }
+}
+
+/* --------------------------- min-width: 900px  --------------------------- */
+@media (min-width: 900px)
+{
+    header
+    {
+        height: 150px;
+    }
+
+    h1
+    {
+        font-size: 2.8rem;
+        line-height: 85px;
+    }
+
+    h2 
+    {
+        font-size: 2.4rem;
+        margin: 15px 0px 30px;
+    }
+
+    h5
+    {
+        font-size: 1rem;
+    }
+
+    th, td
+    {
+        font-size: 1rem;
+    }
+
+    li 
+    {
+        font-size: 1.1rem;
+    }
+
+    img 
+    {
+        width: 100%;
+        height: auto;
+        padding-bottom: 10px;
+    }
+
+    aside h3 
+    {
+        font-size: 1.8rem;
+    }
+
+    #close-pop-up
+    {
+        top: -6px;
+        right: 8px;
+    }
+
+    .container1
+    {
+        width: 100%;
+        max-width: 350px;
+        gap: 20px;
+        padding: 25px;
+    }
+
+    .container2
+    {
+        gap: 15px;
+        margin: 10px 5px;
+        margin-top: 25px;
+        margin-bottom: 12px;
+    } 
+
+    .small-box
+    {
+        width: 100px;
+        height: 100px;
+        margin: 0px auto;
+        padding: 20px;
+    }
+
+    .big-box
+    {
+        width: 100%;
+        max-width: 300px;
+        margin: 0px auto;
+        padding: 15px;
+        border-radius: 12px;
+    }
+
+    .score
+    {
+        margin-top: 8px;
+        font-size: 1.3rem;
+    }
+
+    .table-score
+    {
+        font-size: 1rem;
+    }
+}

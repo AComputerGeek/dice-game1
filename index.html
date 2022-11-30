@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+	<!--
+	Author: 	Amir Armion
+	Version:	V.01
+	-->
+	<head>
+		<title>Dice Game | Entertainment</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+		<link rel="manifest" href="favicon/site.webmanifest">
+		<meta name="msapplication-TileColor" content="#da532c">
+		<meta name="theme-color" content="#ffffff">
+
+		<!-- CSS Stylesheet -->
+		<link href="styles/styles.css" rel="stylesheet" />
+
+		<!-- Scripts -->
+        <script src="scripts/jquery-3.4.1.min.js" defer></script>
+		<script src="scripts/Dice.js" defer></script>		
+		<script src="scripts/driver.js" defer></script>		
+	</head>
+
+	<body>
+		<div id="wrapper">
+            <header>
+				<div>
+					<h1>Entertainment</h1>
+				</div>
+            </header>
+
+			<main>
+				<section>
+					<h2>🎲 Dice Game 🎲</h2>
+					<div class="container">
+						<article class="container1">
+							<h3>You</h3>
+							<div class="big-box">
+								<h4>Your Dice</h4>
+								<div class="container2">
+									<div class="small-box">
+										<h5>Dice #1</h5>
+										<div id="player1-dice1"></div>
+									</div>
+
+									<div class="small-box">
+										<h5>Dice #2</h5>
+										<div id="player1-dice2"></div>
+									</div>																			
+								</div>
+							</div>
+	
+							<div class="big-box">
+								<h4>Your Score</h4>
+								<div class="container2">
+									<div class="small-box">
+										<h5>This Round</h5>
+										<div id="player1-current-score" class="score"></div>										
+									</div>
+									
+									<div id="p1FinalScore" class="small-box">
+										<h5>Total Score</h5>
+										<div id="player1-total-score" class="score"></div>
+									</div>									
+								</div>
+							</div>
+						</article>
+	
+						<article class="container1 gray">
+							<h3>Opponent</h3>
+							<div class="big-box">
+								<h4>Opponent's Dice</h4>
+								<div class="container2">
+									<div class="small-box">
+										<h5>Dice #1</h5>
+										<div id="player2-dice1"></div>
+									</div>
+	
+									<div class="small-box">
+										<h5>Dice #2</h5>
+										<div id="player2-dice2"></div>
+									</div>									
+								</div>
+							</div>
+	
+							<div class="big-box">
+								<h4>Opponent's Score</h4>
+								<div class="container2">
+									<div class="small-box">
+										<h5>This Round</h5>
+										<div id="player2-current-score" class="score"></div>
+									</div>
+									
+									<div id="p2FinalScore" class="small-box">
+										<h5>Total Score</h5>
+										<div id="player2-total-score" class="score"></div>
+									</div>									
+								</div>
+							</div>
+						</article>
+					</div>
+
+					<br><br>
+
+					<aside>
+						<div class="game-round" id="game-round"><span><b>Round Counter: </b>...</span></div>
+					</aside>
+
+					<br>
+					
+					<div class="all-buttons animation">
+						<button id="btn-new">New Game</button>
+						<button id="btn-roll">Roll Dice</button>
+					</div>
+
+					<hr><br>
+
+					<div>
+						<h3>Game Summary</h3>
+						<table>
+							<thead>
+								<tr>
+									<th></th>
+									<th>R #1</th>
+									<th>R #2</th>
+									<th>R #3</th>
+									<th>Total Score</th>
+								</tr>
+							</thead>
+	
+							<tbody>
+								<tr>
+									<td><b>Player</b></td>
+									<td id="p1r1" class="table-score"></td>
+									<td id="p1r2" class="table-score"></td>
+									<td id="p1r3" class="table-score"></td>
+									<td id="p1Total" class="table-score"></td>
+								</tr>
+								<tr>
+									<td class="gray"><b>Computer</b></td>
+									<td id="p2r1" class="table-score"></td>
+									<td id="p2r2" class="table-score"></td>
+									<td id="p2r3" class="table-score"></td>
+									<td id="p2Total" class="table-score"></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+					<hr><br>
+
+					<article class="container3">
+						<div class="container4">
+							<h3>How to play?</h3>
+							<a href="" id="show-play">[Hide]</a>
+						</div>
+
+						<div id="how-play">
+							<ul>
+								<li>To start, click the 'Roll Dice' button.</li>
+								<li>To advance to the next round, click the 'Roll Dice' button again.</li>
+								<li>After three rounds, the game is over and the final score is calculated.</li>
+								<li>If you want to play again, click the 'New Game' button or refresh the page.</li>
+							</ul>
+						</div>
+					</article>
+
+					<article class="container3">
+						<div class="container4">
+							<h3>Rules:</h3>
+							<a href="" id="show-rules">[Hide]</a>
+						</div>
+
+						<div id="rules">
+							<ul>
+								<li>Each round, you and computer both roll a pair of dice.</li>
+								<li>Your score for that round will be based on the sum of dice.</li>
+								<li>If you roll doubles (e.g. a 3 and a 3), then your score is multiplied by 2.</li>
+								<li>Rolling a 1 will give you a score of 0 for that round.</li>
+								<li>The player who has the most points at the end of three rounds is the winner.</li>
+							</ul>
+						</div>
+					</article>
+				</section>
+			</main>
+
+			<footer>
+				<small class="footer-adj black">&copy; Final Project - COMP 2132</small>
+			</footer>
+
+			<!-- Popup -->
+			
+			<aside id="pop-up"> 
+				<div>
+					<button id="close-pop-up">&#x2715;</button>        
+					<h3>Game Over</h3>
+					<p class="won">Congratulation! You Won! &#128516;</p>	
+					<p class="lost">Sorry! You Lost! &#128533;</p>
+					<p class="even">You and Opponent were even!<br><br>&#128526;</p>
+				</div>				
+			</aside>  
+		</div>
+	</body>
+</html>
