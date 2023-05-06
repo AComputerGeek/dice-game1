@@ -1,3 +1,7 @@
+
+// @author: Amir Armion
+// @version: V.01
+
 // Grab the DOM'S element
 const player1Dice1        = document.getElementById(`player1-dice1`);
 const player1Dice2        = document.getElementById(`player1-dice2`);
