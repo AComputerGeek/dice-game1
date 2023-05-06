@@ -1,3 +1,6 @@
+// @author: Amir Armion
+// @version: V.01
+
 // Constant
 const none = 0;
 const max  = 5;
